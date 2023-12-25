@@ -57,6 +57,10 @@ header.scrolled {
   border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+header .logo {
+  cursor: pointer;
+}
+
 header .logo svg {
   width: 128px;
   height: 32px;
@@ -74,11 +78,29 @@ header .links {
 }
 
 header .links .link {
+  position: relative;
   color: #fff;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: 20.8px; /* 138.667% */
+  cursor: pointer;
+}
+
+header .links .link::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+header .links .link:hover::before {
+  width: 100%;
 }
 
 header .btns {
@@ -94,6 +116,7 @@ header .btns .btn {
   justify-content: center;
   align-items: center;
 }
+
 header .btns .btn .text {
   color: #fff;
   text-align: center;
@@ -103,11 +126,61 @@ header .btns .btn .text {
   line-height: 16px; /* 106.667% */
 }
 
+header .btns .btn-1,
+header .btns .btn-2 {
+  position: relative;
+  transition: 0.3s;
+}
+
+header .btns .btn-1 .text,
+header .btns .btn-2 .text {
+  transition: 0.3s;
+  color: white;
+}
+
+header .btns .btn-1::before,
+header .btns .btn-2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0%;
+  height: 0%;
+  padding: 0px;
+  background-color: white;
+  transition: 0.3s;
+  z-index: -1;
+  border-radius: 360px;
+}
+
+header .btns .btn-1:hover::before,
+header .btns .btn-2:hover::before {
+  width: 100%;
+  height: 100%;
+  /* padding: 10px 20px; */
+}
+
+header .btns .btn-1:hover .text,
+header .btns .btn-2:hover .text {
+  color: black;
+}
+
+header .btns .btn-1:hover,
+header .btns .btn-2:hover {
+  padding: 10px 20px;
+}
+
 header .btns .btn-3 {
   padding: 10px 20px;
   border-radius: 64px;
   background: #5b6cff;
   box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 0.25) inset;
+  transition: 0.3s;
+}
+
+header .btns .btn-3:hover {
+  background: #3d4dd7;
 }
 
 header .btns .btn-3 .text {
@@ -196,6 +269,11 @@ header .btns .btn-3 .text {
   border-radius: 64px;
   background: #5b6cff;
   box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 0.25) inset;
+  transition: 0.3s;
+}
+
+.hero-section .head .btns .btn-1:hover {
+  background: #3d4dd7;
 }
 
 .hero-section .head .btns .btn-2 {
@@ -205,6 +283,27 @@ header .btns .btn-3 .text {
   gap: 8px;
   border-radius: 64px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .head .btns .btn-2 i {
+  font-size: 13px;
+}
+
+.hero-section .head .btns .btn-2:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.5s ease;
+}
+
+.hero-section .head .btns .btn-2:hover:before {
+  width: 100%;
 }
 
 .hero-section .images {
@@ -713,9 +812,34 @@ header .btns .btn-3 .text {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 13px 25px;
+  padding: 10px 20px;
   border-radius: 64px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-2 .btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  transition: width 0.5s ease;
+}
+
+.section-2 .btn:hover:before {
+  width: 100%;
+}
+
+.section-2 .btn .text {
+  font-size: 16px;
+}
+
+.section-2 .btn svg {
+  height: 20px;
 }
 
 /* ------------- Section-3 Styling ------------- */
@@ -774,6 +898,23 @@ header .btns .btn-3 .text {
   padding: 10px 20px;
   border-radius: 64px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-3 .head-container .texts .btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.5s ease;
+}
+
+.section-3 .head-container .texts .btn:hover:before {
+  width: 100%;
 }
 
 .section-3 .head-container .texts .btn .text {
@@ -992,6 +1133,27 @@ header .btns .btn-3 .text {
   padding: 10px 20px;
   border-radius: 64px;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-3 .btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.5s ease;
+}
+
+.section-3 .btn:hover:before {
+  width: 100%;
+}
+
+.section-3 .btn svg {
+  height: 20px;
 }
 
 /* ------------- Section-4 Styling ------------- */
@@ -1131,6 +1293,11 @@ header .btns .btn-3 .text {
   border-radius: 64px;
   background: #5b6cff;
   box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 0.25) inset;
+  transition: 0.3s;
+}
+
+.section-5 .head .sub-heading .btn:hover {
+  background: #3d4dd7;
 }
 
 .section-5 .head .sub-heading .btn .text {
@@ -1653,8 +1820,9 @@ header .btns .btn-3 .text {
 
 .section-9 .cards .card {
   width: 100%;
+  min-height: 500px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
   gap: 1rem;
@@ -1694,6 +1862,26 @@ header .btns .btn-3 .text {
   letter-spacing: -0.2px;
 }
 
+.section-9 .cards .card .btn {
+  position: relative;
+}
+
+.section-9 .cards .card .btn::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #5b6cff;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+.section-9 .cards .card .btn:hover::before {
+  width: 100%;
+}
+
 .section-9 .cards .card .btn .text {
   color: #5b6cff;
   text-align: center;
@@ -1712,6 +1900,11 @@ header .btns .btn-3 .text {
   border-radius: 64px;
   background: #5b6cff;
   box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 0.25) inset;
+  transition: 0.3s;
+}
+
+.section-9 #btn:hover {
+  background: #3d4dd7;
 }
 
 .section-9 #btn .text {
@@ -1763,6 +1956,23 @@ header .btns .btn-3 .text {
   align-items: flex-start;
   border-radius: 64px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-10 .head-container .btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.5s ease;
+}
+
+.section-10 .head-container .btn:hover:before {
+  width: 100%;
 }
 
 .section-10 .head-container .btn .text {
@@ -1823,6 +2033,11 @@ header .btns .btn-3 .text {
   border-radius: 64px;
   background: #5b6cff;
   box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 0.25) inset;
+  transition: 0.3s;
+}
+
+.section-10 .container .col .btn:hover {
+  background: #3d4dd7;
 }
 
 /* ------------- Section-11 Styling ------------- */
@@ -1918,6 +2133,19 @@ header .btns .btn-3 .text {
   width: 100%;
 }
 
+.section-11 .col:nth-child(3) .input-email svg {
+  cursor: pointer;
+  overflow: visible;
+}
+
+.section-11 .col:nth-child(3) .input-email svg path {
+  transition: 0.3s;
+}
+
+.section-11 .col:nth-child(3) .input-email svg:hover path {
+  transform: translateX(15px);
+}
+
 /* ------------- Section-12 Styling ------------- */
 
 .section-12 {
@@ -1983,6 +2211,11 @@ header .btns .btn-3 .text {
   border-radius: 64px;
   background: #5b6cff;
   box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 0.25) inset;
+  transition: 0.3s;
+}
+
+.section-12 .head-container .btn:hover {
+  background: #3d4dd7;
 }
 
 .section-12 .head-container .btn .text {
@@ -2073,6 +2306,24 @@ header .btns .btn-3 .text {
   font-weight: 400;
   line-height: 24px; /* 126.316% */
   letter-spacing: -0.2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.last-section .texts .links .link::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+.last-section .texts .links .link:hover::before {
+  width: 100%;
 }
 
 /* ------------- Footer Styling ------------- */
@@ -2093,9 +2344,33 @@ footer .texts {
   gap: 2rem;
 }
 
+footer .texts p:nth-child(2),
+footer .texts p:nth-child(3) {
+  cursor: pointer;
+}
+
+footer .texts p:nth-child(2):hover,
+footer .texts p:nth-child(3):hover {
+  text-decoration: underline;
+}
+
 footer .icons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+footer .icons svg {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+footer .icons svg path {
+  transition: 0.3s;
+}
+
+footer .icons svg:hover path {
+  fill: #5b6cff;
 }
