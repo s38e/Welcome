@@ -13,10 +13,18 @@ window.addEventListener("scroll", stickyNavBar);
 function updateFontSizeForHeading() {
   var parentElement = document.getElementById("section-2");
   var textHeading = document.querySelector(".section-2 .head .heading");
+  var textHeadingSection3H1 = document.querySelector(
+    ".section-3 .container .head-text h1:nth-child(2)"
+  );
+  var textHeadingSection3H2 = document.querySelector(
+    ".section-3 .container .head-text h1:nth-child(3)"
+  );
   var parentWidth = parentElement.clientWidth;
 
   var maxFontSize = Math.floor(parentWidth / 6);
   textHeading.style.fontSize = maxFontSize + "px";
+  textHeadingSection3H1.style.fontSize = maxFontSize / 1.2 + "px";
+  textHeadingSection3H2.style.fontSize = maxFontSize / 1.2 + "px";
 }
 window.addEventListener("resize", updateFontSizeForHeading);
 
@@ -26,11 +34,15 @@ updateFontSizeForHeading();
 
 function updateFontSizeForTitle() {
   var parentElement = document.getElementById("section-2");
-  var textHeading = document.querySelector(".section-2 .head .title");
+  var textTitle = document.querySelector(".section-2 .head .title");
+  var textTitleSection3 = document.querySelector(
+    ".section-3 .container .head-text p  "
+  );
   var parentWidth = parentElement.clientWidth;
 
   var halfMaxFontSize = Math.floor(parentWidth / 30);
-  textHeading.style.fontSize = halfMaxFontSize + "px";
+  textTitle.style.fontSize = halfMaxFontSize + "px";
+  textTitleSection3.style.fontSize = halfMaxFontSize / 1.1 + "px";
 }
 
 window.addEventListener("resize", updateFontSizeForTitle);
@@ -61,6 +73,8 @@ function createIntersectionObserver(classToToggle) {
           observerSection12.unobserve(entry.target);
           observerBigCard.unobserve(entry.target);
           observerTwoCard.unobserve(entry.target);
+          observerSection3HeadText.unobserve(entry.target);
+          observerSection3ThreeCards.unobserve(entry.target);
         } else {
           entry.target.classList.remove(classToToggle);
         }
@@ -75,14 +89,6 @@ const observerHeroSection = createIntersectionObserver("show-hero-section");
 const hiddenElementsHeroSection = document.querySelectorAll(".hero-section");
 hiddenElementsHeroSection.forEach((el) => observerHeroSection.observe(el));
 //
-const observerBigCard = createIntersectionObserver("show-big-card");
-const hiddenElementsBigCard = document.querySelectorAll(".big-card");
-hiddenElementsBigCard.forEach((el) => observerBigCard.observe(el));
-//
-const observerTwoCard = createIntersectionObserver("show-two-card");
-const hiddenElementsTwoCard = document.querySelectorAll(".two-card");
-hiddenElementsTwoCard.forEach((el) => observerTwoCard.observe(el));
-//
 const observerSection1 = createIntersectionObserver("show-section-1");
 const hiddenElementsSection1 = document.querySelectorAll(".section-1");
 hiddenElementsSection1.forEach((el) => observerSection1.observe(el));
@@ -91,9 +97,31 @@ const observerSection2 = createIntersectionObserver("show-section-2");
 const hiddenElementsSection2 = document.querySelectorAll(".section-2");
 hiddenElementsSection2.forEach((el) => observerSection2.observe(el));
 //
+const observerBigCard = createIntersectionObserver("show-big-card");
+const hiddenElementsBigCard = document.querySelectorAll(".big-card");
+hiddenElementsBigCard.forEach((el) => observerBigCard.observe(el));
+//
+const observerTwoCard = createIntersectionObserver("show-two-card");
+const hiddenElementsTwoCard = document.querySelectorAll(".two-card");
+hiddenElementsTwoCard.forEach((el) => observerTwoCard.observe(el));
+//
 const observerSection3 = createIntersectionObserver("show-section-3");
 const hiddenElementsSection3 = document.querySelectorAll(".section-3");
 hiddenElementsSection3.forEach((el) => observerSection3.observe(el));
+//
+const observerSection3HeadText = createIntersectionObserver("show-head-text");
+const hiddenElementsSection3HeadText = document.querySelectorAll(".head-text");
+hiddenElementsSection3HeadText.forEach((el) =>
+  observerSection3HeadText.observe(el)
+);
+//
+const observerSection3ThreeCards =
+  createIntersectionObserver("show-three-card");
+const hiddenElementsSection3ThreeCards =
+  document.querySelectorAll(".three-card");
+hiddenElementsSection3ThreeCards.forEach((el) =>
+  observerSection3ThreeCards.observe(el)
+);
 //
 const observerSection4 = createIntersectionObserver("show-section-4");
 const hiddenElementsSection4 = document.querySelectorAll(".section-4");
