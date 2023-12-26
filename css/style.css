@@ -295,7 +295,7 @@ header .btns .btn-3 .text {
   flex-direction: column;
   width: 100%;
   opacity: 0;
-  transition: 3s 1s;
+  transition: 2s 1s;
 }
 .show-hero-section .images {
   opacity: 1;
@@ -1363,6 +1363,7 @@ header .btns .btn-3 .text {
   padding: 70px 8%;
   color: black;
   background: #fff;
+  overflow: hidden;
 }
 .section-5 .head {
   display: flex;
@@ -1377,6 +1378,13 @@ header .btns .btn-3 .text {
   font-weight: 400;
   line-height: 115.2px; /* 90% */
   letter-spacing: -5px;
+  transform: translateX(200px);
+  opacity: 0;
+  transition: 1s;
+}
+.section-5 .show-head .heading {
+  transform: translateX(0);
+  opacity: 1;
 }
 .section-5 .head .sub-heading {
   display: flex; /* padding: 15px 72.941px 48.813px 0px; */
@@ -1390,6 +1398,13 @@ header .btns .btn-3 .text {
   font-style: normal;
   font-weight: 400;
   line-height: 31.2px; /* 130% */
+  transform: translateY(200px);
+  opacity: 0;
+  transition: 1s 0.2s;
+}
+.section-5 .show-head .sub-heading .title {
+  transform: translateY(0);
+  opacity: 1;
 }
 .section-5 .head .sub-heading .btn {
   display: flex;
@@ -1398,9 +1413,16 @@ header .btns .btn-3 .text {
   border-radius: 64px;
   background: #5b6cff;
   box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 0.25) inset;
-  transition: 0.3s;
+  transform: translateY(200px);
+  opacity: 0;
+  transition: 1s 0.4s;
+}
+.section-5 .show-head .sub-heading .btn {
+  transform: translateY(0);
+  opacity: 1;
 }
 .section-5 .head .sub-heading .btn:hover {
+  transition: 0.3s;
   background: #3d4dd7;
 }
 .section-5 .head .sub-heading .btn .text {
@@ -1411,11 +1433,15 @@ header .btns .btn-3 .text {
   font-weight: 400;
 }
 .section-5 .line {
-  width: 100%;
+  width: 0%;
   height: 1px;
   flex-shrink: 0;
   background: rgba(0, 0, 0, 0.2);
   margin: 5rem 0;
+  transition: 1s;
+}
+.section-5 .show-line {
+  width: 100%;
 }
 .section-5 .cards {
   display: flex;
@@ -1438,6 +1464,13 @@ header .btns .btn-3 .text {
   border-radius: 360px;
   max-height: 350px;
   object-fit: cover;
+  transform: translateX(200px);
+  opacity: 0;
+  transition: 1s 0.8s;
+}
+.section-5 .cards .show-card img {
+  transform: translateX(0);
+  opacity: 1;
 }
 .section-5 .cards .card .texts {
   display: flex;
@@ -1453,6 +1486,13 @@ header .btns .btn-3 .text {
   font-weight: 400;
   line-height: 26px; /* 144.444% */
   letter-spacing: -0.2px;
+  transform: translateY(200px);
+  opacity: 0;
+  transition: 1s;
+}
+.section-5 .cards .show-card .texts .step {
+  transform: translateY(0);
+  opacity: 1;
 }
 .section-5 .cards .card .texts .heading {
   display: flex;
@@ -1467,10 +1507,24 @@ header .btns .btn-3 .text {
   font-weight: 400;
   line-height: 70.4px; /* 117.333% */
   letter-spacing: -2px;
+  transform: translateY(200px);
+  opacity: 0;
+  transition: 1s 0.2s;
+}
+.section-5 .cards .show-card .texts .heading h1 {
+  transform: translateY(0);
+  opacity: 1;
 }
 .section-5 .cards .card .texts .heading svg {
   width: 74px;
   height: 74px;
+  transform: translate(-200px, 200px);
+  opacity: 0;
+  transition: 1s 0.4s;
+}
+.section-5 .cards .show-card .texts .heading svg {
+  transform: translate(0);
+  opacity: 1;
 }
 .section-5 .cards .card .texts .title {
   color: #000;
@@ -1478,6 +1532,13 @@ header .btns .btn-3 .text {
   font-style: normal;
   font-weight: 400;
   line-height: 20.8px; /* 148.571% */
+  transform: translateY(200px);
+  opacity: 0;
+  transition: 1s 0.6s;
+}
+.section-5 .cards .show-card .texts .title {
+  transform: translateY(0);
+  opacity: 1;
 }
 /* ------------- Section-6 Styling ------------- */
 .section-6 {
@@ -1506,10 +1567,22 @@ header .btns .btn-3 .text {
   gap: 2rem;
 }
 .section-6 .circles .col:nth-child(1) {
+  transform: translateY(-300px);
+  opacity: 0;
+  transition: 1s;
+}
+.show-section-6 .circles .col:nth-child(1) {
   transform: translateY(-100px);
+  opacity: 1;
 }
 .section-6 .circles .col:nth-child(2) {
-  transform: translateY(50px);
+  transform: translateY(300px);
+  opacity: 0;
+  transition: 1s 0.2s;
+}
+.show-section-6 .circles .col:nth-child(2) {
+  transform: translateY(100px);
+  opacity: 1;
 }
 .section-6 .circles .col .circle {
   display: flex;
@@ -1574,6 +1647,13 @@ header .btns .btn-3 .text {
   font-weight: 400;
   line-height: 128px; /* 106.667% */
   letter-spacing: -5px;
+  transform: translateX(200px);
+  opacity: 0;
+  transition: 1s 0.4s;
+}
+.show-section-6 .container .texts .head .heading {
+  transform: translateX(0);
+  opacity: 1;
 }
 .section-6 .container .texts .head .sub-heading {
   display: flex;
@@ -1585,6 +1665,13 @@ header .btns .btn-3 .text {
   width: 208px;
   height: 116px;
   border-radius: 64px;
+  transform: translateX(200px);
+  opacity: 0;
+  transition: 1s 0.6s;
+}
+.show-section-6 .container .texts .head .sub-heading img {
+  transform: translateX(0);
+  opacity: 1;
 }
 .section-6 .container .texts .head .sub-heading h1 {
   color: #000;
@@ -1593,6 +1680,13 @@ header .btns .btn-3 .text {
   font-weight: 400;
   line-height: 128px; /* 106.667% */
   letter-spacing: -5px;
+  transform: translateX(200px);
+  opacity: 0;
+  transition: 1s 0.8s;
+}
+.show-section-6 .container .texts .head .sub-heading h1 {
+  transform: translateX(0);
+  opacity: 1;
 }
 .section-6 .container .title {
   color: #000;
@@ -1600,6 +1694,13 @@ header .btns .btn-3 .text {
   font-style: normal;
   font-weight: 400;
   line-height: 26px; /* 130% */
+  transform: translateX(200px);
+  opacity: 0;
+  transition: 1s 1s;
+}
+.show-section-6 .container .title {
+  transform: translateX(0);
+  opacity: 1;
 }
 /* ------------- Section-7 Styling ------------- */
 .section-7 {

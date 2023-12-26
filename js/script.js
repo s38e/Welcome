@@ -75,12 +75,15 @@ function createIntersectionObserver(classToToggle) {
           observerTwoCard.unobserve(entry.target);
           observerSection3HeadText.unobserve(entry.target);
           observerSection3ThreeCards.unobserve(entry.target);
+          observerSection5Head.unobserve(entry.target);
+          observerSection5Line.unobserve(entry.target);
+          observerSection5Card.unobserve(entry.target);
         } else {
           entry.target.classList.remove(classToToggle);
         }
       });
     },
-    { rootMargin: "0px 0px -250px 0px" } // تحديد الهوامش هنا
+    { rootMargin: "0px 0px -200px 0px" } // تحديد الهوامش هنا
   );
 }
 
@@ -130,6 +133,18 @@ hiddenElementsSection4.forEach((el) => observerSection4.observe(el));
 const observerSection5 = createIntersectionObserver("show-section-5");
 const hiddenElementsSection5 = document.querySelectorAll(".section-5");
 hiddenElementsSection5.forEach((el) => observerSection5.observe(el));
+//
+const observerSection5Head = createIntersectionObserver("show-head");
+const hiddenElementsSection5Head = document.querySelectorAll(".head");
+hiddenElementsSection5Head.forEach((el) => observerSection5Head.observe(el));
+//
+const observerSection5Card = createIntersectionObserver("show-card");
+const hiddenElementsSection5Card = document.querySelectorAll(".card");
+hiddenElementsSection5Card.forEach((el) => observerSection5Card.observe(el));
+//
+const observerSection5Line = createIntersectionObserver("show-line");
+const hiddenElementsSection5Line = document.querySelectorAll(".line");
+hiddenElementsSection5Line.forEach((el) => observerSection5Line.observe(el));
 //
 const observerSection6 = createIntersectionObserver("show-section-6");
 const hiddenElementsSection6 = document.querySelectorAll(".section-6");
