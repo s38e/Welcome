@@ -78,6 +78,9 @@ function createIntersectionObserver(classToToggle) {
           observerSection5Head.unobserve(entry.target);
           observerSection5Line.unobserve(entry.target);
           observerSection5Card.unobserve(entry.target);
+          observerHeadContainer.unobserve(entry.target);
+          observerContainer.unobserve(entry.target);
+          observerLastSection.unobserve(entry.target);
         } else {
           entry.target.classList.remove(classToToggle);
         }
@@ -87,6 +90,10 @@ function createIntersectionObserver(classToToggle) {
   );
 }
 
+//
+const observerHeader = createIntersectionObserver("show-header");
+const hiddenElementsHeader = document.querySelectorAll(".header");
+hiddenElementsHeader.forEach((el) => observerHeader.observe(el));
 //
 const observerHeroSection = createIntersectionObserver("show-hero-section");
 const hiddenElementsHeroSection = document.querySelectorAll(".hero-section");
@@ -158,6 +165,17 @@ const observerSection8 = createIntersectionObserver("show-section-8");
 const hiddenElementsSection8 = document.querySelectorAll(".section-8");
 hiddenElementsSection8.forEach((el) => observerSection8.observe(el));
 //
+const observerHeadContainer = createIntersectionObserver("show-head-container");
+const hiddenElementsHeadContainer =
+  document.querySelectorAll(".head-container");
+hiddenElementsHeadContainer.forEach((el) => observerHeadContainer.observe(el));
+//
+const observerContainer = createIntersectionObserver("show-container");
+const hiddenElementsContainer = document.querySelectorAll(
+  ".section-8 .container"
+);
+hiddenElementsContainer.forEach((el) => observerContainer.observe(el));
+//
 const observerSection9 = createIntersectionObserver("show-section-9");
 const hiddenElementsSection9 = document.querySelectorAll(".section-9");
 hiddenElementsSection9.forEach((el) => observerSection9.observe(el));
@@ -174,3 +192,54 @@ const observerSection12 = createIntersectionObserver("show-section-12");
 const hiddenElementsSection12 = document.querySelectorAll(".section-12");
 hiddenElementsSection12.forEach((el) => observerSection12.observe(el));
 //
+const observerLastSection = createIntersectionObserver("show-last-section");
+const hiddenElementsLastSection = document.querySelectorAll(".last-section");
+hiddenElementsLastSection.forEach((el) => observerLastSection.observe(el));
+//
+//
+const scrollers = document.querySelectorAll(".scroller");
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  addAnimation();
+}
+function addAnimation() {
+  scrollers.forEach((scroller) => {
+    scroller.setAttribute("data-animated", true);
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
+    });
+  });
+}
+
+// Swiper JS
+
+let swiperCards = new Swiper(".card__container", {
+  loop: true,
+  spaceBetween: 35,
+  grabCursor: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    600: {
+      slidesPerView: 2,
+    },
+    // 968: {
+    //   slidesPerView: 3,
+    // },
+  },
+  autoplay: {
+    delay: 5000, // مدة التأخير بين الشرائح بالمللي ثانية
+    disableOnInteraction: false, // تعطيل التشغيل التلقائي عند التفاعل مع المستخدم
+  },
+});
