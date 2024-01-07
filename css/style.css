@@ -11,14 +11,14 @@ body {
   font-family: "Inter", sans-serif;
 }
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #5b6cff;
 }
 ::-webkit-scrollbar-track {
-  background-color: #fff;
+  background-color: #000;
 }
 .btn {
   cursor: pointer;
@@ -196,14 +196,154 @@ header .btns .btn-3 .text {
   width: 30px;
   height: 15px;
   display: none;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 11px;
+  transition: 0.6s;
 }
 .menu-icon span {
   width: 30px;
-  background-color: white;
   height: 2px;
+  background-color: white;
+  transition: 0.6s;
+}
+.menu-icon.active {
+  gap: 0;
+}
+.menu-icon.active span:nth-child(1) {
+  transform: translateY(1px) rotate(45deg);
+  margin-bottom: 0;
+}
+.menu-icon.active span:nth-child(2) {
+  transform: translateY(-1px) rotate(-45deg);
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  width: calc(100% - 4rem);
+  height: 0%;
+  position: fixed;
+  z-index: 11;
+  bottom: 0;
+  background: linear-gradient(transparent, black);
+  backdrop-filter: blur(10px);
+  visibility: hidden;
+  transition: height 0.6s cubic-bezier(0.75, 0, 0.175, 1),
+    padding 0.6s cubic-bezier(0.75, 0, 0.175, 1),
+    visibility 0.6s cubic-bezier(0.75, 0, 0.175, 1);
+}
+.menu .links {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 1.5rem;
+  width: 100%;
+}
+.menu .links .link {
+  font-size: 70px;
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(255, 255, 255, 0.6);
+  position: relative;
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: color 0.3s;
+}
+.menu.active .links .link {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+.menu.active .links .link:nth-child(1) {
+  transition: transform 0.5s 0.1s, opacity 0.5s 0.1s, visibility 0.5s 0.1s;
+}
+.menu.active .links .link:nth-child(2) {
+  transition: transform 0.5s 0.2s, opacity 0.5s 0.2s, visibility 0.5s 0.2s;
+}
+.menu.active .links .link:nth-child(3) {
+  transition: transform 0.5s 0.3s, opacity 0.5s 0.3s, visibility 0.5s 0.3s;
+}
+.menu.active .links .link:nth-child(4) {
+  transition: transform 0.5s 0.4s, opacity 0.5s 0.4s, visibility 0.5s 0.4s;
+}
+.menu.active .links .link:nth-child(5) {
+  transition: transform 0.5s 0.5s, opacity 0.5s 0.5s, visibility 0.5s 0.5s;
+}
+.menu .links .link::before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 0;
+  background-color: rgb(91, 108, 255, 0.7);
+  bottom: 2.5px;
+  left: -15px;
+  z-index: -1;
+  border-radius: 7px;
+  transition: 0.3s;
+}
+.menu .links .link:hover {
+  color: white;
+}
+.menu .links .link:hover::before {
+  width: 100%;
+}
+.menu .btns {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: stretch;
+  gap: 1rem;
+  visibility: hidden;
+  transition: 0.3s;
+  width: 100%;
+  flex-direction: column;
+}
+.menu .btns .btn {
+  border-radius: 360px;
+  transform: translateX(100%);
+  opacity: 0;
+}
+.menu.active .btns .btn {
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu .btns .btn:nth-child(1) {
+  transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
+}
+.menu .btns .btn:nth-child(2) {
+  transition: transform 0.5s 0.2s, opacity 0.5s 0.2s;
+}
+.menu .btns .btn:nth-child(3) {
+  transition: transform 0.5s 0.4s, opacity 0.5s 0.3s;
+}
+.menu .btns .btn .text {
+  font-size: 50px;
+  font-weight: 600;
+}
+.menu .btns .btn:hover {
+  transition: 0.3s;
+  background-color: #5b6cff;
+  padding: 5px 30px;
+}
+.menu.active .btns {
+  visibility: visible;
+}
+.menu.active {
+  visibility: visible;
+  padding: 2rem 2rem;
+}
+header + .menu.active {
+  height: calc(100% - 100px - 4rem);
+}
+header.scrolled + .menu.active {
+  height: calc(100% - 70px - 4rem);
 }
 /* ------------- Hero Section Styling ------------- */
 .hero-section {
@@ -1862,6 +2002,7 @@ header .btns .btn-3 .text {
   width: 64px;
   height: 64px;
   border-radius: 360%;
+  object-fit: cover;
 }
 .section-7
   .container
@@ -2593,7 +2734,7 @@ header .btns .btn-3 .text {
   /* border: 5px solid lime; */
   width: 100%;
 }
-/* Start Auto Scroll Animation */
+/* ------------- Start Auto Scroll Animation ------------- */
 .section-12 .scroller[data-animated="true"] {
   overflow: hidden;
   -webkit-mask: linear-gradient(
@@ -2640,7 +2781,7 @@ header .btns .btn-3 .text {
     transform: translate(calc(50% - 1rem));
   }
 }
-/* End Auto Scroll Animation */
+/* ------------- End Auto Scroll Animation ------------- */
 /* ------------- Last Section Styling ------------- */
 .last-section {
   position: relative;
@@ -2771,4 +2912,59 @@ footer .icons svg path {
 }
 footer .icons svg:hover path {
   fill: #5b6cff;
+}
+/* ------------- Responsive Design Styling ------------- */
+/* ------------- 1361px ------------- */
+@media (max-width: 1361px) {
+  .hero-section .images img:nth-child(2) {
+    width: 1156px;
+    height: 606px;
+  }
+  .hero-section .images img:nth-child(3),
+  .hero-section .images img:nth-child(4) {
+    width: 955px;
+    height: 540px;
+  }
+}
+/* ------------- 1161px ------------- */
+@media (max-width: 1161px) {
+  .hero-section .images img:nth-child(2) {
+    width: 1056px;
+    height: 506px;
+  }
+  .hero-section .images img:nth-child(3),
+  .hero-section .images img:nth-child(4) {
+    width: 798px;
+    height: 450px;
+  }
+  .hero-section .head .heading {
+    font-size: 93px;
+  }
+}
+/* ------------- 1070px ------------- */
+@media (max-width: 1070px) {
+  header .btns,
+  header .links {
+    display: none;
+  }
+  .menu-icon {
+    display: flex;
+  }
+  .hero-section .images img:nth-child(2) {
+    width: 930px;
+    height: 430px;
+  }
+  .hero-section .images img:nth-child(3),
+  .hero-section .images img:nth-child(4) {
+    width: 698px;
+    height: 394px;
+  }
+  .hero-section .images img:nth-child(4) {
+    height: 396px;
+  }
+  .hero-section .head .heading {
+    font-size: 85px;
+  }.hero-section .head .title {
+    font-size: 19px;
+  }
 }

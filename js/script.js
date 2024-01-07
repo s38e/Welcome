@@ -243,3 +243,13 @@ let swiperCards = new Swiper(".card__container", {
     disableOnInteraction: false, // تعطيل التشغيل التلقائي عند التفاعل مع المستخدم
   },
 });
+
+// Menu Icon Click
+
+const iconMenu = document.querySelector(".menu-icon");
+const menu = document.querySelector(".menu");
+
+iconMenu.addEventListener("click", () => {
+  iconMenu.classList.toggle("active");
+  menu.classList.toggle("active");
+});
