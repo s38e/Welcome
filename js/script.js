@@ -218,7 +218,7 @@ function addAnimation() {
 // Swiper JS
 
 let swiperCards = new Swiper(".card__container", {
-  loop: true,
+  loop: false,
   spaceBetween: 35,
   grabCursor: true,
   pagination: {
@@ -231,12 +231,12 @@ let swiperCards = new Swiper(".card__container", {
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-    600: {
+    1201: {
       slidesPerView: 2,
     },
-    // 968: {
-    //   slidesPerView: 3,
-    // },
+    1200: {
+      slidesPerView: 1,
+    },
   },
   autoplay: {
     delay: 5000, // مدة التأخير بين الشرائح بالمللي ثانية
